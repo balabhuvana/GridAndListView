@@ -1,4 +1,4 @@
-package com.example.balamurugan_se.gridandlistview;
+package com.example.balamurugan_se.gridandlistview.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.balamurugan_se.gridandlistview.R;
 
 import java.util.ArrayList;
 
@@ -33,6 +36,7 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 
     public class ViewHolder {
         private TextView mTextView;
+        private ImageView mImageView;
     }
 
     public ListViewAdapter(Activity oActivity, ArrayList<String> oArrayList) {
@@ -63,9 +67,15 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
             mViewHolder = new ViewHolder();
             convertView = (View) mInflater.inflate(R.layout.row, null);
             mViewHolder.mTextView = (TextView) convertView.findViewById(R.id.textView);
+            mViewHolder.mImageView = (ImageView) convertView.findViewById(R.id.imageView);
             convertView.setTag(mViewHolder);
         } else {
             mViewHolder = (ViewHolder) convertView.getTag();
+            if (mArrayList.get(position).toString().trim().length() > 4) {
+                mViewHolder.mImageView.setBackground(mActivity.getResources().getDrawable(R.mipmap.ic_wright));
+            }else {
+                mViewHolder.mImageView.setBackground(mActivity.getResources().getDrawable(R.mipmap.ic_close));
+            }
             mViewHolder.mTextView.setText(mArrayList.get(position));
         }
         return convertView;

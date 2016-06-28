@@ -9,4 +9,6 @@
     <dimen name="size_12sp">12sp</dimen>
     <dimen name="editTextWidth">120dp</dimen>
     <dimen name="filterEditTextHeight">50dp</dimen>
+    <dimen name="size_14sp">14sp</dimen>
+    <dimen name="size_40dp">40dp</dimen>
 </resources>

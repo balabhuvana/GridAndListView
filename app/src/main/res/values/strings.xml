@@ -4,4 +4,6 @@
     <string name="selectedValue"></string>
     <string name="title_activity_list_view">ListViewActivity</string>
     <string name="filterEditTextHint">Enter the filter text</string>
+    <string name="age">Age</string>
+    <string name="title_activity_sample_recycler_view">SampleRecyclerViewActivity</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.balamurugan_se.gridandlistview;
+package com.example.balamurugan_se.gridandlistview.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
+
+import com.example.balamurugan_se.gridandlistview.R;
+import com.example.balamurugan_se.gridandlistview.adapter.ListViewAdapter;
 
 import java.util.ArrayList;
 
