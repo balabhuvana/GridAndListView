@@ -3,4 +3,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="verticalSpacing">40dp</dimen>
+    <dimen name="horizontalSpacing">5dp</dimen>
+    <dimen name="columnWidth">40dp</dimen>
+    <dimen name="size_12sp">12sp</dimen>
+    <dimen name="editTextWidth">120dp</dimen>
+    <dimen name="filterEditTextHeight">50dp</dimen>
 </resources>
