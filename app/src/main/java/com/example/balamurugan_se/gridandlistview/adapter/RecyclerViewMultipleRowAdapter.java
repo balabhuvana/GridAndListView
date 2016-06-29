@@ -5,15 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 import com.example.balamurugan_se.gridandlistview.R;
 import com.example.balamurugan_se.gridandlistview.model.AddressModel;
 import com.example.balamurugan_se.gridandlistview.model.AgeModel;
-import com.example.balamurugan_se.gridandlistview.model.MultipleRowModel;
 import com.example.balamurugan_se.gridandlistview.model.NameModel;
 import com.example.balamurugan_se.gridandlistview.ui.MultipleViewHolder;
+
+import java.util.ArrayList;
 
 /**
  * Created by balamurugan_se on 6/28/2016.
@@ -46,19 +46,16 @@ public class RecyclerViewMultipleRowAdapter<T> extends RecyclerView.Adapter<Mult
 
     @Override
     public void onBindViewHolder(MultipleViewHolder holder, int position) {
-        if (((MultipleRowModel) mArrayList.get(position)).getRowType() == 0) {
-            ArrayList nameList = ((MultipleRowModel) mArrayList.get(position)).getmArrayList();
-            NameModel mNameModel = (NameModel) nameList.get(0);
+        if (mArrayList.get(position) instanceof NameModel) {
+            NameModel mNameModel = ((NameModel) mArrayList.get(position));
             holder.mFirstName.setText(mNameModel.getFirstName());
             holder.mLastName.setText(mNameModel.getLastName());
             holder.mPetName.setText(mNameModel.getPetName());
-        } else if (((MultipleRowModel) mArrayList.get(position)).getRowType() == 1) {
-            ArrayList ageList = ((MultipleRowModel) mArrayList.get(position)).getmArrayList();
-            AgeModel mAgeModel = (AgeModel) ageList.get(0);
+        } else if (mArrayList.get(position) instanceof AgeModel) {
+            AgeModel mAgeModel = ((AgeModel) mArrayList.get(position));
             holder.mAge.setText(mAgeModel.getAge());
-        } else if (((MultipleRowModel) mArrayList.get(position)).getRowType() == 2) {
-            ArrayList addressList = ((MultipleRowModel) mArrayList.get(position)).getmArrayList();
-            AddressModel mAddressModel = (AddressModel) addressList.get(0);
+        } else if (mArrayList.get(position) instanceof AddressModel) {
+            AddressModel mAddressModel = ((AddressModel) mArrayList.get(position));
             holder.mDoorNo.setText(mAddressModel.getDoorNo());
             holder.mStreetName.setText(mAddressModel.getStreetName());
             holder.mCityName.setText(mAddressModel.getCity());
@@ -73,11 +70,24 @@ public class RecyclerViewMultipleRowAdapter<T> extends RecyclerView.Adapter<Mult
 
     @Override
     public int getItemViewType(int position) {
-        MultipleRowModel multipleRowModel = (MultipleRowModel) mArrayList.get(position);
 
-        if (multipleRowModel != null) {
-            return multipleRowModel.getRowType();
+        if (mArrayList.get(position) instanceof NameModel) {
+            Toast.makeText(mActivity, "namemodel", Toast.LENGTH_SHORT).show();
+            return ((NameModel) mArrayList.get(position)).getRowType();
+        } else if (mArrayList.get(position) instanceof AgeModel) {
+            Toast.makeText(mActivity, "namemodel", Toast.LENGTH_SHORT).show();
+            return ((AgeModel) mArrayList.get(position)).getRowType();
+        } else if (mArrayList.get(position) instanceof AddressModel) {
+            Toast.makeText(mActivity, "namemodel", Toast.LENGTH_SHORT).show();
+            return ((AddressModel) mArrayList.get(position)).getRowType();
+        } else {
+            Toast.makeText(mActivity, "else " + position, Toast.LENGTH_SHORT).show();
         }
         return super.getItemViewType(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
     }
 }

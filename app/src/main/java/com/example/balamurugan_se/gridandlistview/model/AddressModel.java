@@ -1,5 +1,7 @@
 package com.example.balamurugan_se.gridandlistview.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by balamurugan_se on 6/28/2016.
  */
@@ -8,6 +10,16 @@ public class AddressModel<T> {
     private String streetName;
     private String city;
     private String state;
+    @SerializedName("rowType")
+    int rowType;
+
+    public int getRowType() {
+        return rowType;
+    }
+
+    public void setRowType(int rowType) {
+        this.rowType = rowType;
+    }
 
     public String getDoorNo() {
         return doorNo;
@@ -40,6 +52,4 @@ public class AddressModel<T> {
     public void setState(String state) {
         this.state = state;
     }
-
-
 }

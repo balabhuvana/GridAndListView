@@ -11,4 +11,5 @@ public interface BaseNetworkApi {
 
     @GET("/multiplerows")
     Call<MultipleRowModel> getMultipleRowData();
+
 }
